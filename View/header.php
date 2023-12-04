@@ -14,7 +14,7 @@
     <title>PHP OOP</title>
 </head>
 
-<body>
+<body class="bg-secondary">
     <header>
         <!-- navbar -->
         <nav class="navbar navbar-expand-lg bg-primary">
@@ -43,7 +43,7 @@
             </div>
         </nav>
         <!-- title -->
-        <h1 class="display-2 text-center">
+        <h1 class="display-2 text-center py-5">
             Moooooovieeeeess
         </h1>
     </header>
