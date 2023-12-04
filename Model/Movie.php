@@ -1,4 +1,7 @@
 <?php
+//! includo il file Genre.php
+include __DIR__ . "/Genre.php";
+
 //* definisco la classe movie
 class Movie
 {
@@ -10,10 +13,19 @@ class Movie
     private string $original_language;
     private string $release_date;
     private float $vote_average;
-
+    //? metto come attributo classe Genre
+    public Genre $genre;
     # passo come argomenti alla funzione construct i parametri che riceverà quando creeremo ISTANZE
-    function __construct($id, $poster_path, $title, $overview, $original_language, $release_date, $vote_average)
-    {
+    public function __construct(
+        $id,
+        $poster_path,
+        $title,
+        $overview,
+        $original_language,
+        $release_date,
+        $vote_average,
+        $genre
+    ) {
         $this->id = $id;
         $this->poster_path = $poster_path;
         $this->title = $title;
@@ -21,6 +33,7 @@ class Movie
         $this->original_language = $original_language;
         $this->release_date = $release_date;
         $this->vote_average = $vote_average;
+        $this->genre = $genre;
     }
 
     # creo un metodo che permette di stampare una card per movie
@@ -32,6 +45,7 @@ class Movie
         $original_language = $this->original_language;
         $release_date = $this->release_date;
         $vote_average = $this->vote_average;
+        $genre = $this->genre->name;
 
         //! inserisco il template di card.php
         include __DIR__ . "/../View/card.php";
@@ -45,7 +59,8 @@ $movieList = json_decode($movieString, true);
 $movies = [];
 # ciclo la MovieList per generare ISTANZE di film da pushare in $movies
 foreach ($movieList as $key => $movie) {
-    $movies[] = new Movie($movie["id"], $movie["poster_path"], $movie["title"], $movie["overview"], $movie["original_language"], $movie["release_date"], $movie["vote_average"]);
+    $randGenre = $genres[rand(0, count($genres) - 1)];
+    $movies[] = new Movie($movie["id"], $movie["poster_path"], $movie["title"], $movie["overview"], $movie["original_language"], $movie["release_date"], $movie["vote_average"], $randGenre);
 }
 # controllo che le ISTANZE siano state create correttamente
 // var_dump($movies[0]);

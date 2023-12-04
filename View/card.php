@@ -19,6 +19,9 @@
             <li class="list-group-item">
                 <?= $vote_average ?>
             </li>
+            <li class="list-group-item">
+                <?= $genre ?>
+            </li>
         </ul>
     </div>
 </div>
