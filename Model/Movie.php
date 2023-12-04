@@ -42,13 +42,30 @@ class Movie
         $poster_path = $this->poster_path;
         $title = $this->title;
         $overview = $this->overview;
-        $original_language = $this->original_language;
+        $original_language = $this->langToFlag();
         $release_date = $this->release_date;
         $vote_average = $this->vote_average;
         $genre = $this->genre->name;
 
         //! inserisco il template di card.php
         include __DIR__ . "/../View/card.php";
+    }
+    # creo un metodo per convertire la lingua in bandiera
+    public function langToFlag()
+    {
+        switch ($this->original_language) {
+            case 'en':
+                return $original_language = __DIR__ . '/../View/flags/united-kingdom.png';
+            case 'fr':
+                return $original_language = __DIR__ . '/../View/flags/france.png';
+            case 'de':
+                return $original_language = __DIR__ . '/../View/flags/germany.png';
+            case 'it':
+                return $original_language = __DIR__ . '/../View/flags/italy.png';
+            default:
+                return $original_language = __DIR__ . '/../View/flags/world.png';
+        }
+
     }
 }
 # catturo in una stringa il contenuto di movie_db.json
