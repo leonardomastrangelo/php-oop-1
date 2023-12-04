@@ -11,7 +11,7 @@
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
-                <img src="<?= $original_language ?>" alt="<?= $title ?>">
+                <img class="flag" src="<?= $original_language ?>" alt="<?= $title ?>">
             </li>
             <li class="list-group-item">
                 <?= $release_date ?>

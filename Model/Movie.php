@@ -44,7 +44,7 @@ class Movie
         $overview = $this->overview;
         $original_language = $this->langToFlag();
         $release_date = $this->release_date;
-        $vote_average = $this->vote_average;
+        $vote_average = $this->getVote();
         $genre = $this->genre->name;
 
         //! inserisco il template di card.php
@@ -55,17 +55,28 @@ class Movie
     {
         switch ($this->original_language) {
             case 'en':
-                return $original_language = __DIR__ . '/../View/flags/united-kingdom.png';
+                return $original_language = 'View/flags/united-kingdom.png';
             case 'fr':
-                return $original_language = __DIR__ . '/../View/flags/france.png';
+                return $original_language = 'View/flags/france.png';
             case 'de':
-                return $original_language = __DIR__ . '/../View/flags/germany.png';
+                return $original_language = 'View/flags/germany.png';
             case 'it':
-                return $original_language = __DIR__ . '/../View/flags/italy.png';
+                return $original_language = 'View/flags/italy.png';
             default:
-                return $original_language = __DIR__ . '/../View/flags/world.png';
+                return $original_language = 'View/flags/world.png';
         }
 
+    }
+    # creo un metodo per convertire il voto in stelle
+    public function getVote()
+    {
+        $vote_average = ceil($this->vote_average / 2);
+        $template = "<p>";
+        for ($i = 1; $i <= 5; $i++) {
+            $template .= $i <= $vote_average ? "<i class='fa-solid fa-star'></i>" : "<i class='fa-regular fa-star'></i>";
+        }
+        $template .= "</p>";
+        return $template;
     }
 }
 # catturo in una stringa il contenuto di movie_db.json
