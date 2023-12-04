@@ -1,5 +1,5 @@
 .card {
-    height: 800px;
+    height: 820px;
     overflow: hidden;
 }
 .flag {
@@ -9,7 +9,7 @@
     height: 470px;
 }
 .card-text {
-    height: 90px;
+    height: 100px;
     overflow: auto;
 }
 
