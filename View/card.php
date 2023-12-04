@@ -1,12 +1,12 @@
-<div class="col-4 py-4">
+<div class="col-12 col-md-6 col-xl-4 py-4">
     <div class="card">
-        <img src="<?= $poster_path ?>" class="card-img-top" alt="<?= $title ?>">
-        <div class="card-body">
+        <img class="poster" src="<?= $poster_path ?>" class="card-img-top" alt="<?= $title ?>">
+        <div class="card-body overflow-hidden">
             <h5 class="card-title">
                 <?= $title ?>
             </h5>
-            <p class="card-text">
-                <?= substr($overview, 0, 250) ?>
+            <p class="card-text py-2">
+                <?= $overview ?>
             </p>
         </div>
         <ul class="list-group list-group-flush">
